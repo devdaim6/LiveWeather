@@ -27,7 +27,10 @@ function Home() {
     const country = parsedData.sys.country;
     const feel = parsedData.main.feels_like;
     const temp = parsedData.main.temp;
+    const temp_min = parsedData.main.temp_min;
+    const temp_max = parsedData.main.temp_max;
     const description = parsedData.weather[0].description;
+    const cloud_percentage=parsedData.clouds.all;
     const _sunrise = parsedData.sys.sunrise;
     const sunrise = new Date(1000 * _sunrise);
     const _sunset = parsedData.sys.sunset;
@@ -37,7 +40,7 @@ function Home() {
     const name = parsedData.name;
     document.getElementById(
       "res"
-    ).innerHTML = `<h5><strong>Temperature in ${name},${country} is ${temp} °C   </strong><img src= ${imgUrl}  /> </h5><em>Feels like : </em> ${feel} °C<br><em>Wind Speed : </em>${wind}km/hr<br><em>Currently ${description}  in ${name}</em> <hr><em>Sunrise : </em>${sunrise}<br><em>Sunset : </em>${sunset}<br> `;
+    ).innerHTML = `<h5><strong>Temperature in ${name},${country} is ${temp} °C </strong><img src= ${imgUrl}  /> </h5><hr><em>Feels like : </em> ${feel} °C<br>Temp_min : ${temp_min}<br>Temp_max : ${temp_max}<br><em>Wind Speed : </em>${wind}km/hr<br>Cloud Spead : ${cloud_percentage}%<br><em>Currently ${description}  in ${name}</em> <hr><em>Sunrise : </em>${sunrise}<br><em>Sunset : </em>${sunset}<br> `;
   }
   async function Demos() {
     const apikey = "a41370e877ce7f6bc5b827bfba791b3f";
@@ -68,6 +71,7 @@ function Home() {
     const temp1 = parsed1Data.main.temp;
     const description1 = parsed1Data.weather[0].description;
     const icon1 = parsed1Data.weather[0].icon;
+    const cloud_percentage1=parsed1Data.clouds.all;
     const wind1 = parsed1Data.wind.speed;
     const country1 = parsed1Data.sys.country;
     const feel1 = parsed1Data.main.feels_like;
@@ -84,6 +88,7 @@ function Home() {
     const temp2 = parsed2Data.main.temp;
     const description2 = parsed2Data.weather[0].description;
     const icon2 = parsed2Data.weather[0].icon;
+    const cloud_percentage2=parsed2Data.clouds.all;
     const wind2 = parsed2Data.wind.speed;
     const country2 = parsed2Data.sys.country;
     const sunrise_2 = parsed2Data.sys.sunrise;
@@ -99,6 +104,7 @@ function Home() {
     const temp3 = parsed3Data.main.temp;
     const description3 = parsed3Data.weather[0].description;
     const icon3 = parsed3Data.weather[0].icon;
+    const cloud_percentage3=parsed3Data.clouds.all;
     const sunrise_3 = parsed3Data.sys.sunrise;
     const sunrise3 = new Date(1000 * sunrise_3);
     const sunset_3 = parsed3Data.sys.sunset;
@@ -111,13 +117,13 @@ function Home() {
 
     document.getElementById(
       "demo1"
-    ).innerHTML = `<h5><strong>Temperature in ${name1},${country1} is ${temp1} °C  </strong> <img src= ${img1Url}  /> </h5><em>Feels like : </em>${feel1} °C<br><em>Wind Speed : </em>${wind1}km/hr<br><em>Currently ${description1}  in  ${name1}</em><hr><em>Sunrise : </em>${sunrise1}<br><em>Sunset : </em>${sunset1}<br>`;
+    ).innerHTML = `<h5><strong>Temperature in ${name1},${country1} is ${temp1} °C  </strong> <img src= ${img1Url}  /> </h5><hr><em>Feels like : </em>${feel1} °C<br><em>Wind Speed : </em>${wind1}km/hr<br>Cloud Spread : ${cloud_percentage1}%<br><em>Currently ${description1}  in  ${name1}</em><hr><em>Sunrise : </em>${sunrise1}<br><em>Sunset : </em>${sunset1}<br>`;
     document.getElementById(
       "demo2"
-    ).innerHTML = `<h5><strong>Temperature in ${name2},${country2} is ${temp2} °C  </strong> <img src= ${img2Url}  /> </h5><em>Feels like : </em>${feel2} °C<br><em>Wind Speed : </em>${wind2}km/hr<br><em>Currently ${description2}  in  ${name2}</em><hr><em>Sunrise : </em>${sunrise2}<br><em>Sunset : </em>${sunset2}<br>`;
+    ).innerHTML = `<h5><strong>Temperature in ${name2},${country2} is ${temp2} °C  </strong> <img src= ${img2Url}  /> </h5><hr><em>Feels like : </em>${feel2} °C<br><em>Wind Speed : </em>${wind2}km/hr<br>Cloud Spread : ${cloud_percentage2}%<br><em>Currently ${description2}  in  ${name2}</em><hr><em>Sunrise : </em>${sunrise2}<br><em>Sunset : </em>${sunset2}<br>`;
     document.getElementById(
       "demo3"
-    ).innerHTML = `<h5><strong>Temperature in ${name3},${country3} is ${temp3} °C  </strong> <img src= ${img3Url}  /> </h5><em>Feels like : </em>${feel3} °C<br><em>Wind Speed : </em>${wind3}km/hr<br><em>Currently ${description3}  in  ${name3}</em><hr><em>Sunrise : </em>${sunrise3}<br><em>Sunset : </em>${sunset3}<br>`;
+    ).innerHTML = `<h5><strong>Temperature in ${name3},${country3} is ${temp3} °C  </strong> <img src= ${img3Url}  /> </h5><hr><em>Feels like : </em>${feel3} °C<br><em>Wind Speed : </em>${wind3}km/hr<br>Cloud Spread : ${cloud_percentage3}%<br><em>Currently ${description3}  in  ${name3}</em><hr><em>Sunrise : </em>${sunrise3}<br><em>Sunset : </em>${sunset3}<br>`;
   }
   setTimeout(Demos, 10);
 
