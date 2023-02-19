@@ -34,7 +34,7 @@ function Home() {
 
     document.getElementById(
       "res"
-    ).innerHTML = `<h4>Temperature in ${query},${country} is ${temp} °C   <img src= ${imgUrl}  /> </h4>Feels like : ${feel} °C<p> Wind Speed : ${wind}km/hr</p><p>Currently ${description}  in ${query}</p><span> </span>`;
+    ).innerHTML = `<h5>Temperature in ${query},${country} is ${temp} °C   <img src= ${imgUrl}  /> </h5>Feels like : ${feel} °C<p> Wind Speed : ${wind}km/hr</p><p>Currently ${description}  in ${query}</p><span> </span>`;
   }
   async function Demos() {
     const apikey = "a41370e877ce7f6bc5b827bfba791b3f";
@@ -55,7 +55,7 @@ function Home() {
       "&appid=" +
       apikey;
 
-      //hardcodded cards data
+    //hardcodded cards data
     const demo1Data = await fetch(demo1);
     const parsed1Data = await demo1Data.json();
     const temp1 = parsed1Data.main.temp;
@@ -88,37 +88,34 @@ function Home() {
 
     document.getElementById(
       "demo1"
-    ).innerHTML = `<h4>Temperature in Srinagar,${country1} is ${temp1} °C   <img src= ${img1Url}  /> </h4>Feels like : ${feel1} °C<p> Wind Speed : ${wind1}km/hr</p><p>Currently ${description1}  in  Srinagar</p><br>`;
+    ).innerHTML = `<h5>Temperature in Srinagar,${country1} is ${temp1} °C   <img src= ${img1Url}  /> </h5>Feels like : ${feel1} °C<p> Wind Speed : ${wind1}km/hr</p><p>Currently ${description1}  in  Srinagar</p><br>`;
     document.getElementById(
       "demo2"
-    ).innerHTML = `<h4>Temperature in Pahalgam,${country2} is ${temp2} °C   <img src= ${img2Url}  /> </h4>Feels like : ${feel2} °C<p> Wind Speed : ${wind2}km/hr</p><p>Currently ${description2}  in Pahalgam</p><br>`;
+    ).innerHTML = `<h5>Temperature in Pahalgam,${country2} is ${temp2} °C   <img src= ${img2Url}  /> </h5>Feels like : ${feel2} °C<p> Wind Speed : ${wind2}km/hr</p><p>Currently ${description2}  in Pahalgam</p><br>`;
     document.getElementById(
       "demo3"
-    ).innerHTML = `<h4>Temperature in Gulmarg,${country3} is ${temp3} °C   <img src= ${img3Url}  /> </h4>Feels like : ${feel3} °C<p> Wind Speed : ${wind3}km/hr</p><p>Currently ${description3}  in Gulmarg</p><br>`;
+    ).innerHTML = `<h5>Temperature in Gulmarg,${country3} is ${temp3} °C   <img src= ${img3Url}  /> </h5>Feels like : ${feel3} °C<p> Wind Speed : ${wind3}km/hr</p><p>Currently ${description3}  in Gulmarg</p><br>`;
   }
   setTimeout(Demos, 10);
 
   return (
     <>
-      <body>
-        <div className=" d-flex justify-content-center">
-          <div className=" col-sm-12 form-floating">
+      <body class="bg-dark">
+        <div className="  d-flex justify-content-center">
+          <div className=" col-md-6 my-3 col-lg-6 form-floating">
             <input
               type="text"
-              className="form-control my-4 "
-              placeholder="City Name"
+              className="form-control "
+              placeholder=" "
               id="in"
               required
-              autoFocus
               aria-label="City"
             />
-            <label htmlFor="in" className="form-control">
-              Enter the Name of your City
-            </label>
-            <div className=" d-flex justify-content-center col-12">
+            <label htmlFor="in">Enter the Name of your City</label>
+            <div className=" d-flex justify-content-center col-12 ">
               <button
                 type="submit"
-                className="btn btn-outline-dark"
+                className="btn my-3 text-white btn-outline-secondary"
                 onClick={parsing}
               >
                 Search
@@ -126,27 +123,37 @@ function Home() {
             </div>
           </div>
         </div>
-        <div className="container my-3 mx-10 d-flex justify-content-center ">
-          <p id="res" className="text-center"></p>
-        </div>
+
+      
+       
         <div className="conatiner">
+          <div className="row d-flex justify-content-center">
+           
+          <div className="col-lg-4 col-md-4 ">
+            <div className=" card mx-2 my-2 bg-black text-white text-center">
+              <div className="card-body">
+                <p className="card-text" id="res"></p>
+              </div>
+            </div>
+          </div>
+          </div>
           <div className="row">
             <div className="col-md-4 text-center">
-              <div className="card mx-2 my-2">
+              <div className="card mx-2 my-2 bg-black text-white">
                 <div className="card-body">
                   <p className="card-text" id="demo1"></p>
                 </div>
               </div>
             </div>
             <div className="col-md-4 text-center">
-              <div className="card mx-2 my-2">
+              <div className="card mx-2 my-2 bg-black text-white">
                 <div className="card-body">
                   <p className="card-text" id="demo2"></p>
                 </div>
               </div>
             </div>
             <div className="col-md-4 text-center">
-              <div className="card mx-2 my-2">
+              <div className="card mx-2 my-2 bg-black text-white">
                 <div className="card-body">
                   <p className="card-text" id="demo3"></p>
                 </div>
