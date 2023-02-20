@@ -1,5 +1,10 @@
 import React from "react";
 function Home() {
+  const align = {
+    textAlign: "center",
+    textDecoration: "none",
+    color:"white"
+  };
   async function parsing() {
     const apikey = "a41370e877ce7f6bc5b827bfba791b3f";
     const units = "metric";
@@ -189,9 +194,23 @@ function Home() {
                 </div>
               </div>
             </div>
+            <span style={align}>
+              {" "}
+              &copy;{" "}
+              <span style={align}>
+                {" "}
+                Copyright 2023 |
+                <a href="https://devdaim.me" style={align}>
+                  {" "}
+                  DevDaim
+                </a>{" "}
+              </span>
+            </span>
           </div>
         </div>
+      
       </div>
+     
     </>
   );
 }
