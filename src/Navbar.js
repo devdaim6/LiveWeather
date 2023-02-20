@@ -3,9 +3,9 @@ import React from 'react'
 function Navbar() {
     return (
     <>
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" />
             <div>
 
-                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" />
 
                 <nav className="navbar navbar-expand navbar-dark bg-black opacity-50 mb-3" aria-label="Second navbar example">
                     <div className="container-fluid">
