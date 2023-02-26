@@ -29,9 +29,12 @@ function Home() {
       return;
     }
     const wind = parsedData.wind.speed;
+    const windG = parsedData.wind.gust;
+    const windD = parsedData.wind.deg;
     const country = parsedData.sys.country;
     const feel = parsedData.main.feels_like;
     const temp = parsedData.main.temp;
+    const pressure= parsedData.main.pressure;
     const temp_min = parsedData.main.temp_min;
     const temp_max = parsedData.main.temp_max;
     const humidity = parsedData.main.humidity;
@@ -41,12 +44,15 @@ function Home() {
     const sunrise = new Date(1000 * _sunrise).toLocaleTimeString();
     const _sunset = parsedData.sys.sunset;
     const sunset = new Date(1000 * _sunset).toLocaleTimeString();
+    const localTime = new Date().toLocaleTimeString();
+  
+
     const icon = parsedData.weather[0].icon;
     const imgUrl = "http://openweathermap.org/img/wn/" + icon + "@2x.png";
     const name = parsedData.name;
     document.getElementById(
       "res"
-    ).innerHTML = `<h5><strong>Temperature in ${name},${country} is ${temp} °C </strong><img src= ${imgUrl}  /> </h5><hr><em>Feels like : </em> ${feel} °C<br>Temp_min : ${temp_min} °C<br>Temp_max : ${temp_max} °C<br><em>Wind Speed : </em>${wind}km/hr<br>Cloud Spead : ${cloud_percentage}%<br><em>Sunrise </em> :${sunrise}<br><em>Sunset  </em>: ${sunset}<br><em>Humidity </em>: ${humidity}%<br><em>Currently ${description}  in ${name}</em>  `;
+    ).innerHTML = `<h5><strong>${name},${country} </h5></strong>${localTime}<h2><img src= ${imgUrl}  /><strong>${temp} °C </h2></strong><em>${description}</em><br/><em>Feels like : </em>${feel}<br/><em>Temp_min </em>: ${temp_min} °C<br><em>Temp_max</em> : ${temp_max} °C<br><em>Wind Gusts : </em>${windG} m/s<br><em>Wind Direction : </em>${windD}°<br><em>Wind Speed : </em>${wind} m/s<br/>Cloud Spread : ${cloud_percentage}%<br/><em>Sunrise </em>: ${sunrise}<br/><em>Sunset </em>: ${sunset}<br><em>Pressure</em> : ${pressure} millibars<br/><em>Humidity</em> : ${humidity}%<br/> `;
   }
   async function Demos() {
     const apikey = "a41370e877ce7f6bc5b827bfba791b3f";
@@ -79,6 +85,9 @@ function Home() {
     const icon1 = parsed1Data.weather[0].icon;
     const cloud_percentage1=parsed1Data.clouds.all;
     const wind1 = parsed1Data.wind.speed;
+    const windG1 = parsed1Data.wind.gust;
+    const windD1 = parsed1Data.wind.deg;
+    const pressure1= parsed1Data.main.pressure;
     const country1 = parsed1Data.sys.country;
     const feel1 = parsed1Data.main.feels_like;
     const humidity1 = parsed1Data.main.humidity;
@@ -86,7 +95,6 @@ function Home() {
     const sunrise1 = new Date(1000 * sunrise_1).toLocaleTimeString();
     const sunset_1 = parsed1Data.sys.sunset;
     const sunset1 = new Date(1000 * sunset_1).toLocaleTimeString();
-    // console.log((sunrise1));          //(sunrise1).toUTCString()
     const name1 = parsed1Data.name;
     const img1Url = "http://openweathermap.org/img/wn/" + icon1 + "@2x.png";
 
@@ -97,6 +105,9 @@ function Home() {
     const icon2 = parsed2Data.weather[0].icon;
     const cloud_percentage2=parsed2Data.clouds.all;
     const wind2 = parsed2Data.wind.speed;
+    const windG2 = parsed2Data.wind.gust;
+    const windD2= parsed2Data.wind.deg;
+    const pressure2= parsed2Data.main.pressure;
     const country2 = parsed2Data.sys.country;
     const sunrise_2 = parsed2Data.sys.sunrise;
     const sunrise2 = new Date(1000 * sunrise_2).toLocaleTimeString();
@@ -117,7 +128,10 @@ function Home() {
     const sunrise3 = new Date(1000 * sunrise_3).toLocaleTimeString();
     const sunset_3 = parsed3Data.sys.sunset;
     const sunset3 = new Date(1000 * sunset_3).toLocaleTimeString();
-    const wind3 = parsed1Data.wind.speed;
+    const wind3 = parsed3Data.wind.speed;
+    const windG3 = parsed3Data.wind.gust;
+    const windD3 = parsed3Data.wind.deg;
+    const pressure3= parsed3Data.main.pressure;
     const country3 = parsed3Data.sys.country;
     const name3 = parsed3Data.name;
     const feel3 = parsed3Data.main.feels_like;
@@ -126,13 +140,13 @@ function Home() {
 
     document.getElementById(
       "demo1"
-    ).innerHTML = `<h5><strong>Temperature in ${name1},${country1} is ${temp1} °C  </strong> <img src= ${img1Url}  /> </h5><hr><em>Feels like : </em>${feel1} °C<br><em>Wind Speed : </em>${wind1}km/hr<br>Cloud Spread : ${cloud_percentage1}%<br><em>Sunrise </em>: ${sunrise1}<br><em>Sunset </em>: ${sunset1}<br><em>Humidity</em> : ${humidity1}%<br><em>Currently ${description1}  in  ${name1}</em><br>`;
+    ).innerHTML = `<h5><strong>${name1}, ${country1} </h5></strong><h2><img src= ${img1Url}  /><strong>${temp1} °C </h2></strong><em>${description1}</em><br/><em>Feels like : </em>${feel1} °C<br><em>Wind Gusts : </em>${windG1} m/s<br><em>Wind Direction : </em>${windD1}°<br/><em>Wind Speed : </em>${wind1} m/s<br/>Cloud Spread : ${cloud_percentage1}%<br/><em>Sunrise </em>: ${sunrise1}<br/><em>Sunset </em>: ${sunset1}<br><em>Humidity</em> : ${humidity1}%<br/><em>Pressure</em> : ${pressure1} millibars`;
     document.getElementById(
       "demo2"
-    ).innerHTML = `<h5><strong>Temperature in ${name2},${country2} is ${temp2} °C  </strong> <img src= ${img2Url}  /> </h5><hr><em>Feels like : </em>${feel2} °C<br><em>Wind Speed : </em>${wind2}km/hr<br>Cloud Spread : ${cloud_percentage2}%<br><em>Sunrise </em>: ${sunrise2}<br><em>Sunset </em>: ${sunset2}<br><em>Humidity</em> : ${humidity2}%<br><em>Currently ${description2}  in  ${name2}</em><br>`;
+    ).innerHTML = `<h5><strong>${name2}, ${country2} </h5></strong><h2><img src= ${img2Url}  /><strong>${temp2} °C </h2></strong><em>${description2}</em><br/><em>Feels like : </em>${feel2} °C<br><em>Wind Gusts : </em>${windG2} m/s<br><em>Wind Direction : </em>${windD2}°<br/><em>Wind Speed : </em>${wind2} m/s<br/>Cloud Spread : ${cloud_percentage2}%<br/><em>Sunrise </em>: ${sunrise2}<br/><em>Sunset </em>: ${sunset2}<br><em>Humidity</em> : ${humidity2}%<br/><em>Pressure</em> : ${pressure2} millibars`;
     document.getElementById(
       "demo3"
-    ).innerHTML = `<h5><strong>Temperature in ${name3},${country3} is ${temp3} °C  </strong> <img src= ${img3Url}  /> </h5><hr><em>Feels like : </em>${feel3} °C<br><em>Wind Speed : </em>${wind3}km/hr<br>Cloud Spread : ${cloud_percentage3}%<br><em>Sunrise </em>: ${sunrise3}<br><em>Sunset </em>: ${sunset3}<br><em>Humidity</em> : ${humidity3}%<br><em>Currently ${description3}  in  ${name3}</em><br>`;
+    ).innerHTML = `<h5><strong>${name3}, ${country3} </h5></strong><h2><img src= ${img3Url}  /><strong>${temp3} °C </h2></strong><em>${description3}</em><br/><em>Feels like : </em>${feel3} °C<br><em>Wind Gusts : </em>${windG3} m/s<br><em>Wind Direction : </em>${windD3}°<br/><em>Wind Speed : </em>${wind3} m/s<br/>Cloud Spread : ${cloud_percentage3}%<br/><em>Sunrise </em>: ${sunrise3}<br/><em>Sunset </em>: ${sunset3}<br><em>Humidity</em> : ${humidity3}%<br/><em>Pressure</em> : ${pressure3} millibars`;
   }
   setTimeout(Demos, 10);
 
